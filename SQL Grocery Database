@@ -1,0 +1,30 @@
+--Create a grocery store database
+
+CREATE TABLE grocery(id INTEGER primary key, name TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO grocery VALUES(1, "Hot Cheetos", 3.00, 1);
+INSERT INTO grocery VALUES(2, "Raspberries", 2.50, 1);
+INSERT INTO grocery VALUES(3, "Gatorade", 7.00, 4);
+INSERT INTO grocery VALUES(4, "Green Peppers",2.50, 3);
+INSERT INTO grocery VALUES(5, "Hot Dogs" 4.00, 2);
+INSERT INTO grocery VALUES(6, "Frozen Pizza", 6.00, 2);
+INSERT INTO grocery VALUES(7, "Gallon of Milk", 1.50, 1);
+INSERT INTO grocery VALUES(8, "Green Apples" 5.00, 10);
+INSERT INTO grocery VALUES(9, "Frozen Chicken", 12.00, 3);
+INSERT INTO grocery VALUES(10, "Sandwhich Meat", 3.00, 1);
+INSERT INTO grocery VALUES(11, "Ramen Noodles", 0.99, 5);
+INSERT INTO grocery VALUES(12, "Chocolate Cookies", 4.99, 1);
+INSERT INTO grocery VALUES(13, "Wheat Bread", 3.99, 1);
+INSERT INTO grocery VALUES(14, "Alcoholic Beverages", 12.99, 3);
+INSERT INTO grocery VALUES(15, "Water Bottles", 3.29, 2);
+INSERT INTO grocery VALUES(16, "Cleaning Supplies", 20.00, 2);
+INSERT INTO grocery VALUES(17, "Double A Batteries", 4.00 1);
+
+--display the database ordered by price.
+SELECT * FROM grocery WHERE price ORDER BY price DESC;
+
+--what are the 5 most popular items?
+SELECT item, price, quantity
+FROM grocery
+ORDER BY quantity DESC
+LIMIT 5;
