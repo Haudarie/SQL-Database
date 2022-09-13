@@ -1,0 +1,44 @@
+
+
+CREATE TABLE who (
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+fullname TEXT,
+age INTEGER);
+
+INSERT INTO who (fullname, age) VALUES ("Lebron James", "38");
+INSERT INTO who (fullname, age) VALUES ("Derek Jeter", "41");
+INSERT INTO who (fullname, age) VALUES ("Queen Elizabeth", "96");
+INSERT INTO who (fullname, age) VALUES ("Barack Obama", "61");
+INSERT INTO who (fullname, age) VALUES ("Kylie Jenner", "24");
+INSERT INTO who (fullname, age) VALUES ("Tom Brady", "45");
+INSERT INTO who (fullname, age) VALUES ("Kobe Bryant", "43");
+INSERT INTO who (fullname, age) VALUES ("Dwayne Johnson", "50");
+INSERT INTO who (fullname, age) VALUES ("Kevin Hart", "43");
+INSERT INTO who (fullname, age) VALUES ("PnB Rock", "30");
+INSERT INTO who (fullname, age) VALUES ("Mike Tyson", "53");
+INSERT INTO who (fullname, age) VALUES ("Michael Jordan", "52");
+INSERT INTO who (fullname, age) VALUES ("Tupac Shakur", "38");
+
+CREATE TABLE hobbies (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+person_id INTEGER,
+name TEXT);
+
+INSERT INTO hobbies (person_id, name) VALUES (1, "drawing");
+INSERT INTO hobbies (person_id, name) VALUES (2, "Fishing");
+INSERT INTO hobbies (person_id, name) VALUES (3, "Play Cards);
+INSERT INTO hobbies (person_id, name) VALUES (4, "Bowling");
+INSERT INTO hobbies (person_id, name) VALUES (5, "Makeup");
+INSERT INTO hobbies (person_id, name) VALUES (6, "Swimming");
+INSERT INTO hobbies (person_id, name) VALUES (7, "Wine Tasting");
+INSERT INTO hobbies (person_id, name) VALUES (8, "Lifting Weights");
+INSERT INTO hobbies (person_id, name) VALUES (9, "Watch Movies");
+INSERT INTO hobbies (person_id, name) VALUES (10, "Rapping");
+INSERT INTO hobbies (person_id, name) VALUES (11, "Golfing");
+INSERT INTO hobbies (person_id, name) VALUES (12, "Gambling");
+INSERT INTO hobbies (person_id, name) VALUES (13, "Shoot Dice");
+
+SELECT w.fullname, h.name
+FROM who w
+JOIN hobbies h
+ON w.id=h.person_id;
