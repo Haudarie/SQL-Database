@@ -1,0 +1,54 @@
+#1. Show customers who are not in the US.
+SELECT FirstName, LastName, CustomerID, Country
+FROM chinook.customers
+WHERE Country != "USA"
+
+#2. Show only customers who are from Brazil
+SELECT * FROM chinook.cutomers
+WHERE Country = "Brazil"
+
+#3. Find the invoices of the customers who are from Brazil. The resulting table will show the customers full name, Invoice ID, Country, and Date.
+SELECT cust.FirstName, cust.LastName, inv.InvoiceID, inv.BillingCountry, inv.InvoiceDate
+FROM chinook.invoices AS inv
+ON inv.CustomerID = cust.CustomerID
+WHERE inv.BillingCountry = "Brazil";
+
+#4. Show the employees who are Sales Support Agents.
+SELECT * FROM chinook.Employees
+WHERE Title = "Sales Support Agent";
+
+#5. Find a unique list of billing countries from the invoice table.
+SELECT DISTINCT BillingCountry FROM chinook.Invoices;
+
+#6. Provide a query that shows invoices associated with each Sales Agent.
+SELECT emp.LastName, emp.FirstName, emp.InvoiceID
+FROM chinook.Employees emp
+JOIN chinook.Customers cust ON cust.SupportRepID = emp.EmployeeID
+JOIN chinook.Invoices Inv ON Inv.CustomerID = cust.CustomerID;
+
+#7. Show the invoice total, customer name, country, and Sales Agent name for all customers
+SELECT emp.LastName, emp.FirstName, cust.FirstName, cust.LastName, cust.Country, inv.total
+FROM chinoook.employees emp
+JOIN chinook.Customers cust ON cust.SupportRepID = emp.EmployeeID
+JOIN chinook.Invoices Inv ON Inv.CustomerID = cust.CustomerID;
+
+#8. How many invoices were there in 2009?
+SELECT COUNT(*)
+FROM chinook.Invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+#9.  What are the total sales for 2009?
+SELECT SUM(Total)
+FROM chinook.Invoices
+WHERE invoiceDate BETWEEN '2009-01-01' AND '2009'12'31';
+
+#10. Write a query that includes purchased track name with each invoice item.
+SELECT t.Name, i.InvoiceLineID
+FROM chinook.Invoice_items i
+JOIN chinook.Tracks t ON i.TrackID = t.TrackID;
+
+#11. Write a query that includes purchased track name and artist name with each invoice item.
+SELECT t.Name, t.Composer, i.InvoiceLineID
+FROM chinook.Invoice_items i
+JOIN chinook.Tracks t ON i.TrackID = t.TrackID;
+
